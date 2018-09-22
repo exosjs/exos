@@ -1,0 +1,32 @@
+{
+  "name": "exos-cli",
+  "version": "1.0.0",
+  "description": "Simple CLI tool for React projects",
+  "bin": {
+    "exos-cli": "./src/cli/index.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanovazquez/exos.git"
+  },
+  "keywords": [
+    "react",
+    "cli",
+    "react-cli",
+    "React CLI",
+    "exos"
+  ],
+  "author": "nanovazquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nanovazquez/exos/issues"
+  },
+  "homepage": "https://github.com/nanovazquez/exos#readme",
+  "dependencies": {
+    "yargs-interactive": "^2.0.1"
+  }
+}
