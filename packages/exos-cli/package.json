@@ -1,13 +1,20 @@
 {
   "name": "exos-cli",
   "version": "1.0.0",
-  "description": "Simple CLI tool for React projects",
+  "description": "CLI tool for React projects",
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "build": "rm -rf lib && tsc",
+    "start": "node ./lib/src/exos-cli.js",
+    "debug": "npm run build && node --nolazy --inspect-brk=9229 ./lib/src/exos-cli.js"
+  },
+  "main": "./lib/src/exos-cli.js",
+  "types": "lib/types/index.d.ts",
   "bin": {
-    "exos-cli": "./src/cli/index.js"
+    "exos-cli": "./lib/src/exos-cli.js"
   },
   "files": [
-    "bin",
-    "src"
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -28,5 +35,11 @@
   "homepage": "https://github.com/nanovazquez/exos#readme",
   "dependencies": {
     "yargs-interactive": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.1.1"
   }
 }

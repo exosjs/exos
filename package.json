@@ -1,6 +1,6 @@
 {
   "name": "exos",
-  "description": "Solid foundations for your React applications",
+  "description": "Solid foundations for your micro frontends",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nanovazquez/exos.git"
