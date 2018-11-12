@@ -1,14 +1,12 @@
 import yargsInteractive from "yargs-interactive";
 import availableCommands from "./available-commands";
+import getCommandOptions from "./get-command-options";
 import packageJson from "../../package.json";
 
 const yargsConfig = yargsInteractive();
-const defaultOptions = {
-  interactive: { describe: "Use interactive mode", default: false }
-};
 
 /*
- * This CLI has two levels/parts:
+ * This CLI has two levels:
  * 1) First, you need to choose the command to use.
  * 2) Then, you need to choose the options associated with that command (or sub-commands, if any).
  * Because the first part determines what to do next, we need to run yargs twice.
@@ -17,13 +15,14 @@ const defaultOptions = {
 // Configure all available commands in yargs and get all command names
 // to provide interactive support for the first level (command selection)
 availableCommands.forEach(command => {
-  const commandOptions = Object.assign({}, defaultOptions, command.builder);
   const commandHandler = command.handler.bind(this);
+  const commandOptions = getCommandOptions(command.builder);
 
   // Replace handler with a new one that provides interactive support
   command.handler = () => {
-    // Run yargsInteractive again to obtain the command options
-    // but this time execute the command handler
+    // Run yargsInteractive again to obtain the command options.
+    // Use interactive mode is a property is missing.
+    // Execute the command handler at the end.
     return yargsInteractive()
       .interactive(commandOptions)
       .then(commandHandler);

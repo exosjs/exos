@@ -1,27 +1,5 @@
-function validateValues(argv) {
-  const valuesWithErrors = [];
-  if (!argv.type) {
-    valuesWithErrors.push("type");
-  }
+import { ICreateArguments } from "./types";
 
-  if (!argv.name) {
-    valuesWithErrors.push("name");
-  }
-
-  if (!valuesWithErrors.length) {
-    return true;
-  }
-
-  console.error(`Missing required arguments: ${valuesWithErrors.join(", ")}`);
-  return false;
-}
-
-function create(argv) {
-  if (!validateValues(argv)) {
-    return;
-  }
-
+export default function create(argv: ICreateArguments) {
   console.log("create command called with arguments", argv);
 }
-
-export default create;

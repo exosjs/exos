@@ -1,18 +1,23 @@
+import { EntityType, Language } from "./types";
+
 const defaultValues = {
   type: {
     type: "list",
-    choices: ["Component", "Container", "Service"],
-    default: undefined,
-    describe: "Entity type",
-    // demandOption: true,
-    validate: value => !!value
+    choices: Object.keys(EntityType),
+    default: EntityType.COMPONENT,
+    describe: "Entity type"
   },
   name: {
     type: "input",
     default: undefined,
     describe: "Entity name",
-    // demandOption: true,
     validate: value => !!value
+  },
+  language: {
+    type: "list",
+    choices: Object.keys(Language),
+    default: Language.TYPESCRIPT,
+    describe: "Language to use"
   }
 };
 
