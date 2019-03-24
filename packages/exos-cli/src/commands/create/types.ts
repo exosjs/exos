@@ -1,16 +1,16 @@
-export enum Language {
-  TYPESCRIPT = "Typescript",
-  JAVASCRIPT = "JAVASCRIPT"
+export enum Languages {
+  TypeScript = "ts",
+  JavaScript = "js"
 }
 
-export enum EntityType {
-  COMPONENT = "Component",
-  CONTAINER = "Container",
-  SERVICE = "Service"
+export enum EntityTypes {
+  Component = "Component"
+  // Container = "Container",
+  // Service = "Service"
 }
 
 export interface ICreateArguments {
   name: string;
-  language: Language;
-  type: EntityType;
+  language: Languages;
+  type: EntityTypes;
 }

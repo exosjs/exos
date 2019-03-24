@@ -1,0 +1,7 @@
+export interface IProps {
+  onClick?: () => void;
+}
+
+export interface IState {
+  displayMessage: boolean;
+}
