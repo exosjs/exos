@@ -16,7 +16,8 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "build": "rm -rf lib && tsc && cp -r src/commands/create/templates lib/src/commands/create/templates",
     "start": "node ./lib/src/exos-cli.js",
-    "debug": "node --nolazy --inspect-brk=9229 ./lib/src/exos-cli.js"
+    "debug": "node --nolazy --inspect-brk=9229 ./lib/src/exos-cli.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
