@@ -1,6 +1,6 @@
 {
   "name": "exos-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI tool for React projects",
   "main": "./lib/src/exos-cli.js",
   "types": "lib/types/src/exos-cli.d.ts",
