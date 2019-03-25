@@ -45,7 +45,6 @@
     "@types/fs-extra": "^5.0.5",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.11.4",
-    "@types/yargs-interactive": "^2.0.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "mocha": "^5.2.0",
@@ -54,6 +53,5 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.1"
-  },
-  "gitHead": "f4d4f9799a09c4eac893c152482c71390808950e"
+  }
 }
