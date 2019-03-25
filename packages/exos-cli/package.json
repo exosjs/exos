@@ -3,11 +3,11 @@
   "version": "0.0.3",
   "description": "CLI tool for React projects",
   "main": "./lib/src/exos-cli.js",
-  "types": "lib/types/exos-cli.d.ts",
+  "types": "lib/types/src/exos-cli.d.ts",
   "bin": {
     "exos-cli": "./lib/src/exos-cli.js"
   },
-  "files": [
+  "folders": [
     "lib"
   ],
   "scripts": {
