@@ -2,22 +2,21 @@
   "name": "exos-cli",
   "version": "0.0.5",
   "description": "CLI tool for React projects",
-  "main": "./lib/src/exos-cli.js",
-  "types": "./lib/types/src/exos-cli.d.ts",
+  "main": "./dist/src/exos-cli.js",
+  "types": "./dist/types/src/exos-cli.d.ts",
   "bin": {
-    "exos-cli": "./lib/src/exos-cli.js"
+    "exos-cli": "./dist/src/exos-cli.js"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "build": "rm -rf lib && tsc && cp -r src/commands/create/templates lib/src/commands/create/templates",
-    "start": "node ./lib/src/exos-cli.js",
-    "debug": "node --nolazy --inspect-brk=9229 ./lib/src/exos-cli.js",
-    "prepublish": "npm run build"
+    "build": "rm -rf dist && tsc && cp -r ./src/commands/create/templates ./dist/src/commands/create/templates",
+    "start": "node ./dist/src/exos-cli.js",
+    "debug": "node --nolazy --inspect-brk=9229 ./dist/src/exos-cli.js"
   },
   "repository": {
     "type": "git",

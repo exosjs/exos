@@ -1,7 +1,7 @@
 import yargsInteractive from "yargs-interactive";
 import availableCommands from "./available-commands";
+import getCliVersion from "./get-cli-version";
 import getCommandOptions from "./get-command-options";
-import packageJson from "../../package.json";
 
 const yargsConfig = yargsInteractive();
 
@@ -38,5 +38,5 @@ export default function initCli() {
     .demandCommand(1, 1, "You need to specify a command before moving on")
     .help()
     .wrap(null)
-    .version(packageJson.version).argv;
+    .version(getCliVersion()).argv;
 }
