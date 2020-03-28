@@ -1,7 +1,7 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "./dist",
     "module": "commonjs",
     "esModuleInterop": true,
@@ -12,6 +12,11 @@
     "declaration": true,
     "declarationDir": "dist/types"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*/*.test.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*/*.test.ts"
+  ]
 }
