@@ -2,10 +2,10 @@
   "name": "exos-cli",
   "version": "0.0.9",
   "description": "CLI tool for React projects",
-  "main": "./dist/src/exos-cli.js",
-  "types": "./dist/types/src/exos-cli.d.ts",
+  "main": "./dist/exos-cli.js",
+  "types": "./dist/types/exos-cli.d.ts",
   "bin": {
-    "exos-cli": "./dist/src/exos-cli.js"
+    "exos-cli": "./dist/exos-cli.js"
   },
   "files": [
     "dist"
@@ -14,7 +14,7 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "build": "rm -rf dist && tsc && cp -r ./src/commands/create/templates ./dist/src/commands/create/templates",
+    "build": "rm -rf dist && tsc && cp -r ./src/commands/create/templates ./dist/commands/create/templates",
     "start": "node ./dist/src/exos-cli.js",
     "debug": "node --nolazy --inspect-brk=9229 ./dist/src/exos-cli.js",
     "prepublish": "npm run build"
@@ -37,21 +37,21 @@
   },
   "homepage": "https://github.com/nanovazquez/exos#readme",
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "yargs-interactive": "^2.0.2"
+    "fs-extra": "^9.0.0",
+    "yargs-interactive": "^3.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/fs-extra": "^5.0.5",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.11.4",
+    "@types/chai": "^4.2.11",
+    "@types/fs-extra": "^8.1.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.5",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.2",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.1.1"
+    "coveralls": "^3.0.11",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.8.1",
+    "tslint": "^6.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
   }
 }
