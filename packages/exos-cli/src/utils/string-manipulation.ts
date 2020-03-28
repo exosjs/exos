@@ -1,4 +1,4 @@
-function toCamelCase(str: string) {
+function toCamelCase(str: string): string {
   return (
     str
       .toLowerCase()
@@ -11,11 +11,13 @@ function toCamelCase(str: string) {
   );
 }
 
-function toPascalCase(str: string) {
+function toPascalCase(str: string): string {
   const camelizedString = toCamelCase(str);
 
-  if (camelizedString[0].length) {
-    return camelizedString[0].toUpperCase() + camelizedString[0].substring(1);
+  // If it has at least a character, return the first caracter in uppercase
+  // and the rest as is (i.e. in camelcase)
+  if (camelizedString.length > 0) {
+    return camelizedString[0].toUpperCase() + camelizedString.substring(1);
   }
 
   return camelizedString;

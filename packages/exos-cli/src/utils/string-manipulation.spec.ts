@@ -29,12 +29,9 @@ describe("string-manipulation", () => {
         values.forEach(item => (item.result = toCamelCase(item.value)));
       });
 
-      it("should convert it properly", () => {
+      it("should convert it to camel case", () => {
         values.forEach(item => {
-          expect(item.result).to.equal(
-            item.expectedResult,
-            `${item.value} was not transformed properly`
-          );
+          expect(item.result).to.equal(item.expectedResult, `${item.value} was not transformed properly`);
         });
       });
     });
@@ -59,12 +56,9 @@ describe("string-manipulation", () => {
         values.forEach(item => (item.result = toPascalCase(item.value)));
       });
 
-      it("should convert it properly", () => {
+      it("should convert it to pascal case", () => {
         values.forEach(item => {
-          expect(item.result).to.equal(
-            item.expectedResult,
-            `"${item.value}" was not transformed properly`
-          );
+          expect(item.result).to.equal(item.expectedResult, `"${item.value}" was not transformed properly`);
         });
       });
     });

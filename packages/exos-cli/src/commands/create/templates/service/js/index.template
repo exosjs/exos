@@ -1,0 +1,2 @@
+import EntityName from "./EntityName";
+export default EntityName;

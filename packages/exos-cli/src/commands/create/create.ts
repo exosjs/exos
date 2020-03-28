@@ -26,7 +26,7 @@ export default function create(argv: ICreateArguments) {
   // Copy template folder to output folder
   fs.copySync(templateFolder, outputFolder, { recursive: true });
 
-  // Rename output files with the entity name and its language
+  // Rename output files: replace "EntityName" with the entity name in pascal case, and update its extension with the entity language prefix
   fs.readdirSync(outputFolder).forEach(file => {
     const newFileName = file.replace("EntityName", entityNamePascalCase).replace("template", entityLanguagePrefix);
     const oldPath = path.resolve(outputFolder, file);
@@ -34,7 +34,7 @@ export default function create(argv: ICreateArguments) {
     fs.renameSync(oldPath, newPath);
   });
 
-  // Now replace Entity Name placeholder in output files with the proper value
+  // Replace its content: replace "EntityName" placeholder with the entity name in camel case
   fs.readdirSync(outputFolder).forEach(file => {
     const filePath = path.resolve(outputFolder, file);
     const fileContent = fs.readFileSync(filePath, "utf8");

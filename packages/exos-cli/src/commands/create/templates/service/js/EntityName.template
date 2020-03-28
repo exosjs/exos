@@ -1,0 +1,10 @@
+import baseService from "exos-core";
+
+async function getItems() {
+  const url = "/items";
+  return baseService.get(url);
+}
+
+export {
+  getItems
+}
