@@ -4,9 +4,9 @@ export enum Languages {
 }
 
 export enum EntityTypes {
-  Component = "Component"
-  // Container = "Container",
-  // Service = "Service"
+  UIDomain = "UIDomain",
+  Component = "Component",
+  Service = "Service"
 }
 
 export interface ICreateArguments {

@@ -1,2 +1,2 @@
-import EntityName from "./EntityName";
-export default EntityName;
+import * as entityNameService from "./entityNameService";
+export { entityNameService };
