@@ -8,7 +8,7 @@ import { Item } from "./types";
  */
 async function getItems(): Promise<Item[]> {
   const url = "/items";
-  return baseService.get<Item>(url);
+  return await baseService.get<Item[]>(url);
 }
 
 export {

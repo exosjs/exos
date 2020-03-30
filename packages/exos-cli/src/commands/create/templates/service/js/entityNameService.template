@@ -7,7 +7,7 @@ import baseService from "exos-core";
  */
 async function getItems() {
   const url = "/items";
-  return baseService.get(url);
+  return await baseService.get(url);
 }
 
 export {
