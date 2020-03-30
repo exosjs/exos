@@ -1,8 +1,8 @@
 import React from "react";
-import { IProps, IState } from "./types";
+import { Props, State } from "./types";
 import styles from "./EntityName.css";
 
-class EntityName extends React.PureComponent<IProps, IState> {
+class EntityName extends React.PureComponent<Props, State> {
   private static defaultProps: Partial<IProps> = {
     onClick: () => undefined
   };
