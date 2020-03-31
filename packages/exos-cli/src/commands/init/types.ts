@@ -1,9 +1,10 @@
 export enum AppTypes {
-  ReactUIApp = "React UI app",
+  ReactApp = "ReactApp",
   Library = "Library"
 }
 
-export interface ICreateArguments {
+export interface CommandArguments {
   name: string;
   type: AppTypes;
+  authorName: string;
 }

@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import { ICreateArguments, Languages, EntityTypes } from "./types";
+import { CommandArguments, Languages, EntityTypes } from "./types";
 
 function createEntity(
   entityType: string,
@@ -63,7 +63,7 @@ function createUiDomain(entityNamePascalCase: string, entityNameCamelCase: strin
   createEntity(EntityTypes.Service, entityNamePascalCase, entityNameCamelCase, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
 }
 
-export default function command(argv: ICreateArguments) {
+export default function command(argv: CommandArguments) {
   const entityName = argv.name;
   const entityType = argv.type;
   const entityLanguage = argv.language;

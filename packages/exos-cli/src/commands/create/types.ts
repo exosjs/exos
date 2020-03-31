@@ -9,7 +9,7 @@ export enum EntityTypes {
   Service = "Service"
 }
 
-export interface ICreateArguments {
+export interface CommandArguments {
   name: string;
   language: Languages;
   type: EntityTypes;
