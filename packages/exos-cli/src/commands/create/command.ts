@@ -13,7 +13,7 @@ function createEntity(
   console.log(`Creating ${entityType} named "${entityFileName}"`);
 
   // Get the template files by entity type (i.e. all files inside the folder "templates/<entity-type>/<language-prefix>")
-  // and compy these files into the output folder
+  // and copy these files into the output folder
   const templateFolder = path.resolve(__dirname, "templates", entityType, entityLanguagePrefix);
   const outputFolder = path.resolve(process.cwd(), folderName);
 
@@ -63,9 +63,9 @@ function createUiDomain(entityNamePascalCase: string, entityNameCamelCase: strin
   createEntity(EntityTypes.Service, entityNamePascalCase, entityNameCamelCase, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
 }
 
-export default function create(argv: ICreateArguments) {
-  const entityType = argv.type;
+export default function command(argv: ICreateArguments) {
   const entityName = argv.name;
+  const entityType = argv.type;
   const entityLanguage = argv.language;
 
   const entityNamePascalCase = entityName[0].toUpperCase() + entityName.substring(1);

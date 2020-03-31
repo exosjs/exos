@@ -1,0 +1,5 @@
+function getMessage() {
+  return "hello world";
+}
+
+export { getMessage };

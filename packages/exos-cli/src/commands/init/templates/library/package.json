@@ -1,0 +1,42 @@
+{
+  "name": "entityName",
+  "version": "0.0.1",
+  "description": "TBC",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owner/entityName"
+  },
+  "keywords": [],
+  "author": "TBC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/owner/entityName/issues"
+  },
+  "homepage": "https://github.com/owner/entityName#readme",
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "build": "rm -rf dist && tsc",
+    "start": "node .",
+    "debug": "node --nolazy --inspect-brk=9229 .",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.5",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.11",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  }
+}
