@@ -1,5 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
+import child_process from "child_process";
 import { CommandArguments, AppTypes } from "./types";
 
 function getAllFiles(folderPath: string, fileNames: string[]) {
@@ -24,6 +25,8 @@ function createApp(appType: string, authorName: string, namePascalCase: string, 
   const templateFolder = path.resolve(__dirname, "templates", appType);
   const outputFolder = path.resolve(process.cwd(), namePascalCase);
   const nameSlugified = nameCamelCase.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`);
+
+  console.log("Setting up initial files..");
 
   const files = getAllFiles(templateFolder, []);
 
@@ -50,6 +53,33 @@ function createApp(appType: string, authorName: string, namePascalCase: string, 
   });
 }
 
+function installDependencies(appType: string, appFolderName) {
+  const appFolder = path.resolve(process.cwd(), appFolderName);
+
+  const dependencies = {
+    [AppTypes.Library]: {
+      dependencies: [],
+      devDependencies: ["@types/chai", "@types/mocha", "@types/node", "chai", "coveralls", "mocha", "nyc", "ts-node", "typescript"]
+    },
+    [AppTypes.ReactApp]: {
+      dependencies: ["react", "react-dom"],
+      devDependencies: ["@types/react", "@types/react-dom", "typescript"]
+    }
+  };
+
+  console.log("Installing dependencies..");
+
+  const appTypeDependencies = (dependencies[appType].dependencies as string[]).join(" ");
+  if (appTypeDependencies.length) {
+    child_process.execSync(`cd ${appFolder} && npm i ${appTypeDependencies}`, { stdio: "inherit" });
+  }
+
+  const appTypeDevDependencies = (dependencies[appType].devDependencies as string[]).join(" ");
+  if (appTypeDevDependencies.length) {
+    child_process.execSync(`cd ${appFolder} && npm i -D ${appTypeDevDependencies}`, { stdio: "inherit" });
+  }
+}
+
 export default function command(argv: CommandArguments) {
   const name = argv.name;
   const type = argv.type;
@@ -60,8 +90,10 @@ export default function command(argv: CommandArguments) {
 
   console.log();
   console.log(`Creating ${type} named "${name}"..`);
+  console.log();
 
   createApp(AppTypes[type], authorName, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
+  installDependencies(AppTypes[type], entityNamePascalCase);
 
   console.log("Done!");
   console.log();
