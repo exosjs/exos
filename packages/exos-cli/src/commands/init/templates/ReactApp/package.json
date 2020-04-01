@@ -19,13 +19,8 @@
   },
   "homepage": "https://github.com/owner/entityName#readme",
   "scripts": {
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "build": "rm -rf dist && tsc",
-    "start": "node .",
-    "debug": "node --nolazy --inspect-brk=9229 .",
-    "prepublish": "npm run build"
+    "start:dev": "webpack-dev-server --open --config ./webpack/webpack.dev.config.js",
+    "start:prod": "webpack --config  ./webpack/webpack.prod.config.js"
   },
   "dependencies": {},
   "devDependencies": {}
