@@ -4,7 +4,7 @@ import child_process from "child_process";
 import { CommandArguments, AppTypes } from "./types";
 
 function getAllFiles(folderPath: string, fileNames: string[]) {
-  fs.readdirSync(folderPath).forEach(fileName => {
+  fs.readdirSync(folderPath).forEach((fileName) => {
     const filePath = path.resolve(folderPath, fileName);
     const fileStats = fs.lstatSync(filePath);
 
@@ -19,19 +19,19 @@ function getAllFiles(folderPath: string, fileNames: string[]) {
   return fileNames;
 }
 
-function createApp(appType: string, authorName: string, namePascalCase: string, nameCamelCase: string, languagePrefix: string) {
+function createApp(appType: string, authorName: string, appFolder: string, namePascalCase: string, nameCamelCase: string, languagePrefix: string) {
   // Get the template files by entity type (i.e. all files inside the folder "templates/<entity-type>/<language-prefix>")
   // and copy these files into the output folder
   const templateFolder = path.resolve(__dirname, "templates", appType);
-  const outputFolder = path.resolve(process.cwd(), namePascalCase);
-  const nameSlugified = nameCamelCase.replace(/([A-Z])/g, g => `-${g[0].toLowerCase()}`);
+  const outputFolder = path.resolve(process.cwd(), appFolder);
+  const nameSlugified = nameCamelCase.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`);
 
   console.log("Setting up initial files..");
 
   const files = getAllFiles(templateFolder, []);
 
   // Copy all files from the template folder to the output folder
-  files.forEach(templateFilePath => {
+  files.forEach((templateFilePath) => {
     const fileName = templateFilePath.replace(`${templateFolder}/`, "");
 
     // Generate the output file path by replacing the "EntityName" placeholder in the fileName
@@ -59,7 +59,7 @@ function installDependencies(appType: string, appFolderName) {
   const dependencies = {
     [AppTypes.Library]: {
       dependencies: [],
-      devDependencies: ["@types/chai", "@types/mocha", "@types/node", "chai", "coveralls", "mocha", "nyc", "ts-node", "typescript"]
+      devDependencies: ["@types/chai", "@types/mocha", "@types/node", "chai", "coveralls", "mocha", "nyc", "ts-node", "typescript"],
     },
     [AppTypes.ReactApp]: {
       dependencies: ["react", "react-dom"],
@@ -72,9 +72,9 @@ function installDependencies(appType: string, appFolderName) {
         "ts-loader",
         "webpack",
         "webpack-cli",
-        "webpack-dev-server"
-      ]
-    }
+        "webpack-dev-server",
+      ],
+    },
   };
 
   console.log("Installing dependencies..");
@@ -94,6 +94,7 @@ export default function command(argv: CommandArguments) {
   const name = argv.name;
   const type = argv.type;
   const authorName = argv.authorName || "TBC";
+  const appFolder = name;
   const entityNamePascalCase = name[0].toUpperCase() + name.substring(1);
   const entityNameCamelCase = name[0].toLowerCase() + name.substring(1);
   const entityLanguagePrefix = "ts";
@@ -102,8 +103,8 @@ export default function command(argv: CommandArguments) {
   console.log(`Creating ${type} named "${name}"..`);
   console.log();
 
-  createApp(AppTypes[type], authorName, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
-  installDependencies(AppTypes[type], entityNamePascalCase);
+  createApp(AppTypes[type], authorName, appFolder, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
+  installDependencies(AppTypes[type], appFolder);
 
   console.log("Done!");
   console.log();
