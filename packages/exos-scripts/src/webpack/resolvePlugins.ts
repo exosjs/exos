@@ -3,7 +3,7 @@ import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
-import { ASSETS_PATH, OUTPUT_PATH, OUTPUT_PUBLIC_PATH } from "./paths";
+import { ASSETS_PATH, OUTPUT_PATH, OUTPUT_PUBLIC_PATH } from "../common/paths";
 
 export default (isDevelopment: boolean, version: string): webpack.Plugin[] => [
   new MiniCssExtractPlugin({

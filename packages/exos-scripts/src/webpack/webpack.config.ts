@@ -3,7 +3,7 @@ import resolveExternals from "./resolveExternals";
 import resolveModuleRules from "./resolveModuleRules";
 import resolvePlugins from "./resolvePlugins";
 import resolveVersion from "./resolveVersion";
-import { ROOT_PATH, OUTPUT_PATH, OUTPUT_PUBLIC_PATH } from "./paths";
+import { ROOT_PATH, OUTPUT_PATH, OUTPUT_PUBLIC_PATH } from "../common/paths";
 import type webpack from "webpack";
 
 const isDevelopment = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "dev";

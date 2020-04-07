@@ -12,7 +12,7 @@ function init(scriptName: string, availableScripts: string[], args: string[]) {
     return;
   }
   console.log(`Executing script ${scriptName}...`);
-  const scriptPath = require.resolve(path.resolve(__dirname, scriptToExecute));
+  const scriptPath = require.resolve(path.resolve(__dirname, "scripts", scriptToExecute));
 
   spawn.sync("node", [scriptPath, ...args], { stdio: "inherit" });
   console.log();

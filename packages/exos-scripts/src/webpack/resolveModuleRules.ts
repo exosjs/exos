@@ -1,5 +1,5 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { SOURCE_PATH } from "./paths";
+import { SOURCE_PATH } from "../common/paths";
 import type webpack from "webpack";
 
 export default (isDevelopment: boolean): webpack.RuleSetRule[] => [
