@@ -1,0 +1,65 @@
+{
+  "name": "exos-scripts",
+  "version": "0.0.0",
+  "description": "TBC",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "bin": {
+    "exos-scripts": "./lib/exos-scripts.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owner/exos-scripts"
+  },
+  "keywords": [],
+  "author": "Nano Vazquez <marianodvazquez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/owner/exos-scripts/issues"
+  },
+  "homepage": "https://github.com/owner/exos-scripts#readme",
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "build": "rm -rf lib && tsc",
+    "start": "node .",
+    "debug": "node --nolazy --inspect-brk=9229 .",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.3.0",
+    "@types/chai": "^4.2.11",
+    "@types/cross-spawn": "^6.0.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "@types/webpack": "^4.41.10",
+    "@types/webpack-dev-server": "^3.10.1",
+    "chai": "^4.2.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "coveralls": "^3.0.11",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mocha": "^7.1.1",
+    "node-sass": "^4.13.1",
+    "nyc": "^15.0.1",
+    "sass-loader": "^8.0.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.3",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
