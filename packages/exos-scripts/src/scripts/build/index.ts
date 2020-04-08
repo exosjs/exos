@@ -1,15 +1,16 @@
 import webpack from "webpack";
-import getWebpackConfig from "../../common/getWebpackConfig";
+import webpackConfig from "../../webpack/webpack.config";
+import getConfigToUse from "../../common/getConfigToUse";
 
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "production";
 }
 
-const webpackConfig = getWebpackConfig();
-console.info(webpackConfig.isCustom ? "Found custom webpack config" : "Using default webpack config");
+const configToUse = getConfigToUse<webpack.Configuration>("webpack.js", webpackConfig);
+console.info(configToUse.isCustom ? `Found custom webpack config at ${configToUse.customConfigPath}` : "Using default webpack config");
 
 // For more information, see https://webpack.js.org/api/node/
-const compiler = webpack(webpackConfig.config);
+const compiler = webpack(configToUse.config);
 
 compiler.run((err: Error, stats: webpack.Stats) => {
   // The err object will only contain webpack-related issues, such as misconfiguration, etc.
