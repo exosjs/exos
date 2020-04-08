@@ -18,7 +18,7 @@ function init(scriptName: string, availableScripts: string[], args: string[]) {
   console.log();
 }
 
-const availableScripts = ["build", "start"];
+const availableScripts = ["build", "start", "lint", "test"];
 const script = process.argv[2];
 const otherArgs = process.argv.slice(3);
 
