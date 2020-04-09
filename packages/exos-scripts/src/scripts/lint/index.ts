@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import path from "path";
 import { CLIEngine } from "eslint";
 import { SOURCE_PATH } from "../../common/paths";
@@ -5,8 +6,8 @@ import getConfigToUse from "../../common/getConfigToUse";
 import eslintrc = require("./.eslintrc");
 
 // Resolve configuration to use
-const configToUse = getConfigToUse<{}>(".eslintrc.js", eslintrc);
-console.info(configToUse.isCustom ? `Found custom eslintrc at ${configToUse.customConfigPath}` : "Using default eslintrc");
+const configToUse = getConfigToUse<{}>("lint.js", eslintrc);
+console.info(configToUse.isCustom ? `Found custom lint at ${configToUse.customConfigPath}` : "Using default lint config");
 
 const cli = new CLIEngine({
   configFile: configToUse.isCustom ? configToUse.customConfigPath : path.resolve(__dirname, ".eslintrc.js"),

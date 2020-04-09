@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import webpack from "webpack";
 import webpackConfig from "../../webpack/webpack.config";
 import getConfigToUse from "../../common/getConfigToUse";
@@ -6,8 +7,8 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "production";
 }
 
-const configToUse = getConfigToUse<webpack.Configuration>("webpack.js", webpackConfig);
-console.info(configToUse.isCustom ? `Found custom webpack config at ${configToUse.customConfigPath}` : "Using default webpack config");
+const configToUse = getConfigToUse<webpack.Configuration>("build.js", webpackConfig);
+console.info(configToUse.isCustom ? `Found custom build config at ${configToUse.customConfigPath}` : "Using default build config");
 
 // For more information, see https://webpack.js.org/api/node/
 const compiler = webpack(configToUse.config);

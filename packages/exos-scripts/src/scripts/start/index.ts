@@ -1,10 +1,12 @@
+#!/usr/bin/env node
+
 import webpack from "webpack";
 import webpackDevServer from "webpack-dev-server";
 import webpackConfig from "../../webpack/webpack.config";
 import getConfigToUse from "../../common/getConfigToUse";
 
 const configToUse = getConfigToUse<webpack.Configuration>("start.js", webpackConfig);
-console.info(configToUse.isCustom ? `Found custom webpack config at ${configToUse.customConfigPath}` : "Using default webpack config");
+console.info(configToUse.isCustom ? `Found custom start config at ${configToUse.customConfigPath}` : "Using default start config");
 
 // For more information, see https://webpack.js.org/api/node/
 const compiler = webpack(configToUse.config);
