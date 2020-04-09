@@ -20,17 +20,17 @@ describe("string-manipulation", () => {
         { value: "anotherTest", expectedResult: "anothertest" },
         { value: "this-is-a-test", expectedResult: "thisIsATest" },
         { value: "this_is_a_test", expectedResult: "thisIsATest" },
-        { value: "this is a test", expectedResult: "thisIsATest" }
+        { value: "this is a test", expectedResult: "thisIsATest" },
       ];
     });
 
     describe("when receiving a string", () => {
       before(() => {
-        values.forEach(item => (item.result = toCamelCase(item.value)));
+        values.forEach((item) => (item.result = toCamelCase(item.value)));
       });
 
       it("should convert it to camel case", () => {
-        values.forEach(item => {
+        values.forEach((item) => {
           expect(item.result).to.equal(item.expectedResult, `${item.value} was not transformed properly`);
         });
       });
@@ -47,17 +47,17 @@ describe("string-manipulation", () => {
         { value: "anotherTest", expectedResult: "Anothertest" },
         { value: "this-is-a-test", expectedResult: "ThisIsATest" },
         { value: "this_is_a_test", expectedResult: "ThisIsATest" },
-        { value: "this is a test", expectedResult: "ThisIsATest" }
+        { value: "this is a test", expectedResult: "ThisIsATest" },
       ];
     });
 
     describe("when receiving a string", () => {
       before(() => {
-        values.forEach(item => (item.result = toPascalCase(item.value)));
+        values.forEach((item) => (item.result = toPascalCase(item.value)));
       });
 
       it("should convert it to pascal case", () => {
-        values.forEach(item => {
+        values.forEach((item) => {
           expect(item.result).to.equal(item.expectedResult, `"${item.value}" was not transformed properly`);
         });
       });

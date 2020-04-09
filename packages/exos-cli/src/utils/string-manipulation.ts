@@ -5,7 +5,7 @@ function toCamelCase(str: string): string {
       // Replaces any - or _ characters with a space
       .replace(/[-_]+/g, " ")
       // Uppercases the first character in each group immediately following a space
-      .replace(/ (.)/g, firstCharacter => firstCharacter.toUpperCase())
+      .replace(/ (.)/g, (firstCharacter) => firstCharacter.toUpperCase())
       // Removes spaces
       .replace(/ /g, "")
   );

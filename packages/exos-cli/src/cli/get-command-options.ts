@@ -1,9 +1,9 @@
 const defaultOptions = {
-  interactive: { describe: "Use interactive mode", default: true }
+  interactive: { describe: "Use interactive mode", default: true },
 };
 
-interface ICommandOption {
-  default: any;
+interface CommandOption {
+  default: unknown;
 }
 
 /**
@@ -12,7 +12,7 @@ interface ICommandOption {
  * using the other properties as default values
  * @param commandOptions
  */
-function getCommandOptions(commandOptions: ICommandOption[]) {
+function getCommandOptions(commandOptions: CommandOption[]): unknown {
   const toReturn = Object.assign({}, defaultOptions, commandOptions);
   return toReturn;
 }
