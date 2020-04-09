@@ -9,7 +9,7 @@
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "build": "rm -rf dist && tsc",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

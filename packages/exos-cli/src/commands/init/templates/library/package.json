@@ -25,7 +25,7 @@
     "build": "rm -rf dist && tsc",
     "start": "node .",
     "debug": "node --nolazy --inspect-brk=9229 .",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {}
