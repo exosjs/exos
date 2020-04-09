@@ -5,7 +5,7 @@
  * @returns True if any of the arguments starts with the value sent via parameters. False otherwise
  */
 function hasArgument(args: string[], arg: string) {
-  return args.find((item) => item.startsWith(arg)) !== null;
+  return args.find((item) => item.startsWith(arg)) !== undefined;
 }
 
 export default hasArgument;
