@@ -1,17 +1,16 @@
-import { expect } from "chai";
 import { toCamelCase, toPascalCase } from "./string-manipulation";
 
-interface ITestValues {
+interface TestValues {
   value: string;
   expectedResult: string;
   result?: string;
 }
 
 describe("string-manipulation", () => {
-  let values: ITestValues[];
+  let values: TestValues[];
 
   describe("toCamelCase", () => {
-    before(() => {
+    beforeAll(() => {
       values = [
         { value: "test", expectedResult: "test" },
         { value: "Test", expectedResult: "test" },
@@ -25,20 +24,20 @@ describe("string-manipulation", () => {
     });
 
     describe("when receiving a string", () => {
-      before(() => {
+      beforeAll(() => {
         values.forEach((item) => (item.result = toCamelCase(item.value)));
       });
 
       it("should convert it to camel case", () => {
         values.forEach((item) => {
-          expect(item.result).to.equal(item.expectedResult, `${item.value} was not transformed properly`);
+          expect(item.result).toEqual(item.expectedResult);
         });
       });
     });
   });
 
   describe("toPascalCase", () => {
-    before(() => {
+    beforeAll(() => {
       values = [
         { value: "test", expectedResult: "Test" },
         { value: "Test", expectedResult: "Test" },
@@ -52,13 +51,13 @@ describe("string-manipulation", () => {
     });
 
     describe("when receiving a string", () => {
-      before(() => {
+      beforeAll(() => {
         values.forEach((item) => (item.result = toPascalCase(item.value)));
       });
 
       it("should convert it to pascal case", () => {
         values.forEach((item) => {
-          expect(item.result).to.equal(item.expectedResult, `"${item.value}" was not transformed properly`);
+          expect(item.result).toEqual(item.expectedResult);
         });
       });
     });
