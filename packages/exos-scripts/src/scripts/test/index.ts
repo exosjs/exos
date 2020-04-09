@@ -24,7 +24,7 @@ if (isCI && !hasArgument(argv, "--coverage")) {
 
 // If it's no CI and we arenot collecting coverage,
 // run in watchAll mode (unless explicitly declared otherwise)
-if (!isCI && argv.indexOf("--coverage") === -1 && !hasArgument(argv, "--watchAl")) {
+if (!isCI && !hasArgument(argv, "--coverage") && !hasArgument(argv, "--watchAl")) {
   argv.push("--watchAll");
 }
 
