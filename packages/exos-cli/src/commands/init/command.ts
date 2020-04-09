@@ -63,17 +63,7 @@ function installDependencies(appType: string, appFolderName) {
     },
     [AppTypes.ReactApp]: {
       dependencies: ["react", "react-dom"],
-      devDependencies: [
-        "@types/react",
-        "@types/react-dom",
-        "typescript",
-        "html-webpack-plugin",
-        "source-map-loader",
-        "ts-loader",
-        "webpack",
-        "webpack-cli",
-        "webpack-dev-server",
-      ],
+      devDependencies: ["@types/react", "@types/react-dom", "exos-scripts", "typescript"],
     },
   };
 
