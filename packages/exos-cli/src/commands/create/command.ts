@@ -1,5 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
+import chalk from "chalk";
 import { CommandArguments, Languages, EntityTypes } from "./types";
 
 function createEntity(
@@ -86,6 +87,7 @@ export default function command(argv: CommandArguments): void {
     }
   }
 
-  console.log("Done!");
+  console.log();
+  console.log(chalk.green(`Success!`), `Created "${entityName}".`);
   console.log();
 }

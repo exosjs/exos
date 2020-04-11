@@ -1,5 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
+import chalk from "chalk";
 import childProcess from "child_process";
 import { CommandArguments, AppTypes } from "./types";
 
@@ -96,6 +97,37 @@ export default function command(argv: CommandArguments): void {
   createApp(AppTypes[type], authorName, appFolder, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
   installDependencies(AppTypes[type], appFolder);
 
-  console.log("Done!");
+  console.log();
+  console.log(chalk.green(`Success!`), `Created "${name}" at ${appFolder}`);
+  console.log();
+
+  console.log("Inside that directory, you can run several commands:");
+  console.log();
+
+  if (type == AppTypes.ReactApp) {
+    console.log(chalk.cyan(`npm start`));
+    console.log("  Starts the development server.");
+    console.log();
+  }
+
+  console.log(chalk.cyan(`npm run build`));
+  console.log(`${type == AppTypes.ReactApp ? "  Bundles the app  into static files for production." : "  Builds a library ready to be published"}`);
+  console.log();
+
+  console.log(chalk.cyan(`npm run test`));
+  console.log("  Starts the test runner in watch mode.");
+  console.log();
+
+  console.log(chalk.cyan(`npm run lint`));
+  console.log("  Validates the code syntax in your files.");
+  console.log();
+
+  console.log("We suggest that you begin by typing:");
+  console.log();
+  console.log(chalk.cyan("  cd"), appFolder);
+  console.log(`  ${chalk.cyan(`npm start`)}`);
+
+  console.log();
+  console.log("Happy hacking! 🚀");
   console.log();
 }
