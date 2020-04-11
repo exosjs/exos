@@ -11,5 +11,5 @@
 It currently provides the following packages:
 
 - [Exos CLI](./packages/exos-cli): a CLI tool for building React + TypeScript applications.
+- [Exos Script](./packages/exos-scripts): a set of out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications.
 - [Exos Core](./packages/exos-core): a library with core scripts that helps you to develop your React + TypeScript application and micro frontends.
-- [Exos Script](./packages/exos-scripts): a library with out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications.
