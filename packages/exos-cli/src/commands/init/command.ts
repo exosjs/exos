@@ -59,7 +59,7 @@ function installDependencies(appType: string, appFolderName) {
   const dependencies = {
     [AppTypes.Library]: {
       dependencies: [],
-      devDependencies: ["@types/chai", "@types/mocha", "@types/node", "chai", "coveralls", "mocha", "nyc", "ts-node", "typescript"],
+      devDependencies: ["@types/node", "exos-scripts", "typescript"],
     },
     [AppTypes.ReactApp]: {
       dependencies: ["react", "react-dom"],

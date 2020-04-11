@@ -22,15 +22,15 @@
   },
   "homepage": "https://github.com/owner/exos-scripts#readme",
   "scripts": {
-    "lint": "eslint -c ./.eslintrc.js ./src/**/*.ts",
+    "lint": "eslint -c ./src/scripts/lint/.eslintrc.js ./src/**/*.ts",
     "test": "jest -c ./src/scripts/test/jest.config.js --passWithNoTests --collectCoverage=$CI --rootDir=.",
     "build": "rm -rf lib && tsc",
-    "start": "node .",
-    "debug": "node --nolazy --inspect-brk=9229 .",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@svgr/webpack": "^5.3.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
     "copy-webpack-plugin": "^5.1.1",
     "cross-spawn": "^7.0.2",
     "css-loader": "^3.4.2",
@@ -60,8 +60,6 @@
     "@types/node": "^13.11.1",
     "@types/webpack": "^4.41.10",
     "@types/webpack-dev-server": "^3.10.1",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
     "typescript": "^3.8.3",
     "webpack-cli": "^3.3.11"
   }
