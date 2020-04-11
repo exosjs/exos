@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/owner/entityName#readme",
   "scripts": {
-    "build": "rm -rf dist && tsc",
     "lint": "exos-scripts lint --type=library",
     "test": "exos-scripts test",
+    "build": "rm -rf dist && tsc",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {},

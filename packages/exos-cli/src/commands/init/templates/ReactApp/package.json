@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/owner/entityName#readme",
   "scripts": {
-    "start": "exos-scripts start",
-    "build": "exos-scripts build",
     "lint": "exos-scripts lint",
-    "test": "exos-scripts test"
+    "test": "exos-scripts test",
+    "start": "exos-scripts start",
+    "build": "exos-scripts build"
   },
   "dependencies": {},
   "devDependencies": {}
