@@ -15,7 +15,7 @@ const yargsConfig = yargsInteractive();
 // Configure all available commands in yargs and get all command names
 // to provide interactive support for the first level (command selection)
 availableCommands.forEach((command) => {
-  const commandHandler = command.handler.bind(this);
+  const commandHandler = command.handler.bind(globalThis);
   const commandOptions = getCommandOptions(command.builder);
 
   // Replace handler with a new one that provides interactive support
@@ -23,15 +23,17 @@ availableCommands.forEach((command) => {
     // Run yargsInteractive again to obtain the command options.
     // Use interactive mode is a property is missing.
     // Execute the command handler at the end.
-    return yargsInteractive().interactive(commandOptions).then(commandHandler);
+    return yargsInteractive()
+      .interactive(commandOptions as any)
+      .then(commandHandler);
   };
 
-  yargsConfig.command(command);
+  (yargsConfig as any).command(command);
 });
 
 export default function initCli(): unknown {
   // Run yargsInteractive for the first time to obtain the command to use.
-  return yargsConfig
+  return (yargsConfig as any)
     .usage("$0 <command> [args]")
     .demandCommand(1, 1, "You need to specify a command before moving on")
     .help()

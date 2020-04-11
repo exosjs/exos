@@ -1,16 +1,18 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "module": "commonjs",
-    "esModuleInterop": true,
     "moduleResolution": "node",
-    "noImplicitAny": false,
     "target": "es2015",
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "dist/types"
+    "declarationDir": "dist/types",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*/*.test.ts"]

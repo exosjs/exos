@@ -71,7 +71,7 @@ export default function command(argv: CommandArguments): void {
 
   const entityNamePascalCase = entityName[0].toUpperCase() + entityName.substring(1);
   const entityNameCamelCase = entityName[0].toLowerCase() + entityName.substring(1);
-  const entityLanguagePrefix = Languages[entityLanguage];
+  const entityLanguagePrefix = entityLanguage === Languages.TypeScript ? "ts" : "js";
 
   console.log();
   console.log(`Creating ${entityType} named "${entityName}"..`);

@@ -2,7 +2,8 @@ import fs from "fs-extra";
 import path from "path";
 import chalk from "chalk";
 import childProcess from "child_process";
-import { CommandArguments, AppTypes } from "./types";
+import { AppTypes } from "./types";
+import type { CommandArguments, AppTypeDependencies } from "./types";
 
 function getAllFiles(folderPath: string, fileNames: string[]): string[] {
   fs.readdirSync(folderPath).forEach((fileName) => {
@@ -54,12 +55,12 @@ function createApp(appType: string, authorName: string, appFolder: string, nameP
   });
 }
 
-function installDependencies(appType: string, appFolderName): void {
+function installDependencies(appType: string, appFolderName: string): void {
   const appFolder = path.resolve(process.cwd(), appFolderName);
 
-  const dependencies = {
+  const dependencies: AppTypeDependencies = {
     [AppTypes.Library]: {
-      dependencies: [],
+      dependencies: [] as string[],
       devDependencies: ["@types/jest", "@types/node", "exos-scripts", "typescript"],
     },
     [AppTypes.ReactApp]: {

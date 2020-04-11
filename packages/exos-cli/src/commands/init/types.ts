@@ -8,3 +8,10 @@ export interface CommandArguments {
   type: AppTypes;
   authorName: string;
 }
+
+export interface AppTypeDependencies {
+  [key: string]: {
+    dependencies: string[];
+    devDependencies: string[];
+  };
+}

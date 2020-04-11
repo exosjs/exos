@@ -54,9 +54,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
+    "@types/copy-webpack-plugin": "^5.0.0",
     "@types/cross-spawn": "^6.0.1",
     "@types/eslint": "^6.8.0",
     "@types/jest": "^25.2.1",
+    "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/node": "^13.11.1",
     "@types/webpack": "^4.41.10",
     "@types/webpack-dev-server": "^3.10.1",
