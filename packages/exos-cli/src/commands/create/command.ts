@@ -9,7 +9,7 @@ function createEntity(
   entityNamePascalCase: string,
   entityNameCamelCase: string,
   entityLanguagePrefix: string
-) {
+): void {
   console.log(`Creating ${entityType} named "${entityFileName}"`);
 
   // Get the template files by entity type (i.e. all files inside the folder "templates/<entity-type>/<language-prefix>")
@@ -17,7 +17,7 @@ function createEntity(
   const templateFolder = path.resolve(__dirname, "templates", entityType, entityLanguagePrefix);
   const outputFolder = path.resolve(process.cwd(), folderName);
 
-  fs.readdirSync(templateFolder).forEach(fileName => {
+  fs.readdirSync(templateFolder).forEach((fileName) => {
     // Get the template file path
     const templateFilePath = path.resolve(templateFolder, fileName);
 
@@ -43,7 +43,7 @@ function createEntity(
  * Check if the folder exists and creates it if it doesn't
  * @param folderName The folder name
  */
-function createFolder(folderName: string) {
+function createFolder(folderName: string): void {
   if (!fs.pathExistsSync(folderName)) {
     console.log(`Creating Folder named "${folderName}"`);
     fs.ensureDirSync(folderName);
@@ -52,7 +52,7 @@ function createFolder(folderName: string) {
   }
 }
 
-function createUiDomain(entityNamePascalCase: string, entityNameCamelCase: string, entityLanguagePrefix: string) {
+function createUiDomain(entityNamePascalCase: string, entityNameCamelCase: string, entityLanguagePrefix: string): void {
   // Create folder if it doesn't exist
   createFolder(entityNamePascalCase);
 
@@ -63,7 +63,7 @@ function createUiDomain(entityNamePascalCase: string, entityNameCamelCase: strin
   createEntity(EntityTypes.Service, entityNamePascalCase, entityNameCamelCase, entityNamePascalCase, entityNameCamelCase, entityLanguagePrefix);
 }
 
-export default function command(argv: CommandArguments) {
+export default function command(argv: CommandArguments): void {
   const entityName = argv.name;
   const entityType = argv.type;
   const entityLanguage = argv.language;

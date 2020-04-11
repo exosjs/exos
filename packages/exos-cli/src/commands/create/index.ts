@@ -5,5 +5,5 @@ export default {
   command: "create",
   describe: "Creates a new entity of the specified type.",
   builder: defaultValues,
-  handler: command
+  handler: command,
 };

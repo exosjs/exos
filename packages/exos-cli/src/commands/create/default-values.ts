@@ -5,18 +5,18 @@ const defaultValues = {
     type: "input",
     default: undefined,
     describe: "Entity name",
-    validate: (value: any) => !!value
+    validate: (value: string): boolean => !!value,
   },
   type: {
     type: "list",
     choices: Object.keys(EntityTypes),
-    describe: "Entity type"
+    describe: "Entity type",
   },
   language: {
     type: "list",
     choices: Object.keys(Languages),
-    describe: "Language to use"
-  }
+    describe: "Language to use",
+  },
 };
 
 export default defaultValues;

@@ -1,12 +1,12 @@
 export enum Languages {
   TypeScript = "ts",
-  JavaScript = "js"
+  JavaScript = "js",
 }
 
 export enum EntityTypes {
   UIDomain = "UIDomain",
   Component = "Component",
-  Service = "Service"
+  Service = "Service",
 }
 
 export interface CommandArguments {

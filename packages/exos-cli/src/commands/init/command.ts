@@ -1,9 +1,9 @@
 import fs from "fs-extra";
 import path from "path";
-import child_process from "child_process";
+import childProcess from "child_process";
 import { CommandArguments, AppTypes } from "./types";
 
-function getAllFiles(folderPath: string, fileNames: string[]) {
+function getAllFiles(folderPath: string, fileNames: string[]): string[] {
   fs.readdirSync(folderPath).forEach((fileName) => {
     const filePath = path.resolve(folderPath, fileName);
     const fileStats = fs.lstatSync(filePath);
@@ -19,7 +19,7 @@ function getAllFiles(folderPath: string, fileNames: string[]) {
   return fileNames;
 }
 
-function createApp(appType: string, authorName: string, appFolder: string, namePascalCase: string, nameCamelCase: string, languagePrefix: string) {
+function createApp(appType: string, authorName: string, appFolder: string, namePascalCase: string, nameCamelCase: string, languagePrefix: string): void {
   // Get the template files by entity type (i.e. all files inside the folder "templates/<entity-type>/<language-prefix>")
   // and copy these files into the output folder
   const templateFolder = path.resolve(__dirname, "templates", appType);
@@ -53,17 +53,17 @@ function createApp(appType: string, authorName: string, appFolder: string, nameP
   });
 }
 
-function installDependencies(appType: string, appFolderName) {
+function installDependencies(appType: string, appFolderName): void {
   const appFolder = path.resolve(process.cwd(), appFolderName);
 
   const dependencies = {
     [AppTypes.Library]: {
       dependencies: [],
-      devDependencies: ["@types/node", "exos-scripts", "typescript"],
+      devDependencies: ["@types/jest", "@types/node", "exos-scripts", "typescript"],
     },
     [AppTypes.ReactApp]: {
       dependencies: ["react", "react-dom"],
-      devDependencies: ["@types/react", "@types/react-dom", "exos-scripts", "typescript"],
+      devDependencies: ["@types/jest", "@types/react", "@types/react-dom", "exos-scripts", "typescript"],
     },
   };
 
@@ -71,16 +71,16 @@ function installDependencies(appType: string, appFolderName) {
 
   const appTypeDependencies = (dependencies[appType].dependencies as string[]).join(" ");
   if (appTypeDependencies.length) {
-    child_process.execSync(`cd ${appFolder} && npm i ${appTypeDependencies}`, { stdio: "inherit" });
+    childProcess.execSync(`cd ${appFolder} && npm i ${appTypeDependencies}`, { stdio: "inherit" });
   }
 
   const appTypeDevDependencies = (dependencies[appType].devDependencies as string[]).join(" ");
   if (appTypeDevDependencies.length) {
-    child_process.execSync(`cd ${appFolder} && npm i -D ${appTypeDevDependencies}`, { stdio: "inherit" });
+    childProcess.execSync(`cd ${appFolder} && npm i -D ${appTypeDevDependencies}`, { stdio: "inherit" });
   }
 }
 
-export default function command(argv: CommandArguments) {
+export default function command(argv: CommandArguments): void {
   const name = argv.name;
   const type = argv.type;
   const authorName = argv.authorName || "TBC";

@@ -5,5 +5,5 @@ export default {
   command: "init",
   describe: "Inits a new application scaffolding everything you need to start.",
   builder: defaultValues,
-  handler: command
+  handler: command,
 };
