@@ -8,6 +8,8 @@ It supports the following modes:
 1. **Fully automated:** execute the command passing all the parameters and their values. Ideal for automation (and machines).
 1. **Mixed mode:** You can pass by some parameters, you will be prompted for the missing ones.
 
+> **Note:** For more information about the **🛡️Exos** initiative, click [here](https://github.com/nanovazquez/exos).
+
 ## Getting started
 
 Execute Exos CLI by running:

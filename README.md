@@ -6,7 +6,7 @@
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**Exos** is a JavaScript framework that helps you to create apps and micro frontends using [React](https://github.com/facebook/react) and [TypeScript](https://github.com/Microsoft/TypeScript).
+**🛡️Exos** is a JavaScript framework that helps you to create apps and micro frontends using [React](https://github.com/facebook/react) and [TypeScript](https://github.com/Microsoft/TypeScript).
 
 It currently provides the following packages:
 

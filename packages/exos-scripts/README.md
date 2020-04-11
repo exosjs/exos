@@ -1,6 +1,6 @@
-## Exos-scripts
+# Exos Scripts ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) [![npm version](https://img.shields.io/npm/v/exos-scripts.svg?style=flat)](https://www.npmjs.com/package/exos-scripts)
 
-This project contains a set of out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications. It is inspired in [Facebook' Create React App](https://github.com/facebookincubator/create-react-app) plugin.
+This project contains a set of out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications. It is _heavily_ inspired in [Facebook' Create React App](https://github.com/facebookincubator/create-react-app) plugin.
 
 It contains the following built-in features:
 
@@ -10,15 +10,17 @@ It contains the following built-in features:
 - `exos-scriptsn lint`: a static analyzer tool configured with the best practices for development with [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
   - `exos-scriptsn lint --type=Library`: Also comes with a flavor for Node Libraries using [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
 
-## How to use it
+> **Note:** For more information about the **🛡️Exos** initiative, click [here](https://github.com/nanovazquez/exos).
 
-Install exos scripts in your package by running:
+## Getting started
+
+To use it in your projects, first install `exos-scripts` in your package by running:
 
 ```bash
 npm i -D exos-scripts
 ```
 
-Then, update your package.json with the following:
+Then, update your **package.json** with the following:
 
 ```json
 {

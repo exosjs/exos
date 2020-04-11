@@ -1,7 +1,7 @@
 {
   "name": "exos-core",
   "version": "0.0.4",
-  "description": "Core library for front end projects",
+  "description": "Library with core scripts that helps you to develop your React + TypeScript application and micro frontends",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
