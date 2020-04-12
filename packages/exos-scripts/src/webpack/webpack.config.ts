@@ -9,10 +9,6 @@ import type webpack from "webpack";
 const isDevelopment = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "dev";
 const version = resolveVersion(isDevelopment);
 
-console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
-console.log(`isDevelopment: ${isDevelopment}`);
-console.log(`Version: ${version}`);
-
 const webpackConfig: webpack.Configuration = {
   mode: isDevelopment ? "development" : "production",
 

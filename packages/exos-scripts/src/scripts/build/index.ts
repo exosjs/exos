@@ -1,10 +1,12 @@
 #!/usr/bin/env node
+
+import chalk from "chalk";
 import webpack from "webpack";
 import webpackConfig from "../../webpack/webpack.config";
 import getConfigToUse from "../../common/getConfigToUse";
 
 if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = "production";
+  process.env.NODE_ENV = "prod";
 }
 
 const configToUse = getConfigToUse<webpack.Configuration>("build.js", webpackConfig);
@@ -19,7 +21,8 @@ compiler.run((err: Error, stats: webpack.Stats) => {
   if (err) {
     console.error(err.message);
     console.error(err.stack || err);
-    return;
+    console.log();
+    process.exit(1);
   }
 
   const executionStats = stats.toJson({ all: false, warnings: true, errors: true });
@@ -27,16 +30,18 @@ compiler.run((err: Error, stats: webpack.Stats) => {
   if (executionStats.errors.length) {
     // Only keep the first error. Others are often indicative
     // of the same problem, but confuse the reader with noise.
-    console.error("❌ There was an error during build.");
+    console.error(chalk.red("❌ There was an error during build."));
     console.error(executionStats.errors[0]);
-    return;
+    console.log();
+    process.exit(1);
   }
 
   if (stats.hasWarnings()) {
-    console.warn("🚧 There were warnings during build.");
+    console.warn(chalk.yellow("🚧 There were warnings during build."));
     console.warn(executionStats.warnings);
-    return;
+    console.log();
+    process.exit(0);
   }
 
-  console.info("✅ Build completed successfully.");
+  console.info(chalk.green("✅ Build completed successfully."));
 });

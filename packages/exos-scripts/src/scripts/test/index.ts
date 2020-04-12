@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import * as jest from "jest";
 import getConfigToUse from "../../common/getConfigToUse";
 import hasArgument from "../../common/hasArgument";

@@ -5,6 +5,10 @@ import webpackDevServer from "webpack-dev-server";
 import webpackConfig from "../../webpack/webpack.config";
 import getConfigToUse from "../../common/getConfigToUse";
 
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = "dev";
+}
+
 const configToUse = getConfigToUse<webpack.Configuration>("start.js", webpackConfig);
 console.info(configToUse.isCustom ? `Found custom start config at ${configToUse.customConfigPath}` : "Using default start config");
 
@@ -17,6 +21,7 @@ const host = configToUse.config.devServer?.host || "0.0.0.0";
 devServer.listen(port, host, (error?: Error) => {
   if (error) {
     console.error("❌ There was an error during start.");
+    console.log();
     console.error(error);
     return;
   }
