@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = "prod";
+}
+
 import chalk from "chalk";
 import webpack from "webpack";
 import webpackConfig from "../../webpack/webpack.config";
 import getConfigToUse from "../../common/getConfigToUse";
-
-if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = "prod";
-}
 
 const configToUse = getConfigToUse<webpack.Configuration>("build.js", webpackConfig);
 console.info(configToUse.isCustom ? `Found custom build config at ${configToUse.customConfigPath}` : "Using default build config");

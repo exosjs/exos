@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import path from "path";
 import { CLIEngine } from "eslint";
 import { SOURCE_PATH } from "../../common/paths";
