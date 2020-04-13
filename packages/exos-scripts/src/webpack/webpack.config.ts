@@ -25,6 +25,7 @@ const webpackConfig: webpack.Configuration = {
     hot: true,
     contentBase: [OUTPUT_PATH, ROOT_PATH],
     publicPath: OUTPUT_PUBLIC_PATH,
+    historyApiFallback: true,
   },
 
   // See https://webpack.js.org/configuration/devtool/
