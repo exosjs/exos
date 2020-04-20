@@ -29,7 +29,7 @@ const webpackConfig: webpack.Configuration = {
   },
 
   // See https://webpack.js.org/configuration/devtool/
-  devtool: isDevelopment ? "cheap-eval-source-map" : "source-map",
+  devtool: isDevelopment ? "cheap-module-eval-source-map" : "source-map",
 
   resolve: {
     // Add resolvable extensions.
