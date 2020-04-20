@@ -4,7 +4,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "test";
 }
 
-import jest from "jest";
+import * as jest from "jest";
 import getConfigToUse from "../../common/getConfigToUse";
 import jestConfig = require("./jest.config");
 import type { Config } from "@jest/types";
