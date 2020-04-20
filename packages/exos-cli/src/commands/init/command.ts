@@ -116,7 +116,7 @@ export default function command(argv: CommandArguments): void {
   console.log();
 
   console.log(chalk.cyan(`npm run test`));
-  console.log("  Starts the test runner in watch mode.");
+  console.log("  Executes the test runner in all of your test files.");
   console.log();
 
   console.log(chalk.cyan(`npm run lint`));
