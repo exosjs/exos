@@ -4,7 +4,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "test";
 }
 
-import * as jest from "jest";
+import jest from "jest";
 import getConfigToUse from "../../common/getConfigToUse";
 import hasArgument from "../../common/hasArgument";
 import jestConfig = require("./jest.config");
@@ -23,7 +23,7 @@ if (isCI && !hasArgument(argv, "--coverage")) {
   argv.push("--coverage");
 }
 
-// If it's no CI and we arenot collecting coverage,
+// If it's no CI and we are not collecting coverage,
 // run in watchAll mode (unless explicitly declared otherwise)
 if (!isCI && !hasArgument(argv, "--coverage") && !hasArgument(argv, "--watchAl")) {
   argv.push("--watchAll");
