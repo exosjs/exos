@@ -13,8 +13,11 @@ import type { Config } from "@jest/types";
 const configToUse = getConfigToUse<Config.Argv>("test.js", jestConfig as any);
 console.info(configToUse.isCustom ? `Found custom test config at ${configToUse.customConfigPath}` : "Using default test config");
 
-// Get a copy of the current arguments, and set the config to use
-const argv = process.argv.slice();
+// Remove current args because we don't want to run Jest
+// using the current path as base (it should use what's configured in the config file)
+const argv = process.argv.slice(2);
+
+// Set the config to use
 argv.push("--config", JSON.stringify(configToUse.config));
 
 // Run Jest with the arguments
