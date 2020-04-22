@@ -1,6 +1,6 @@
 {
   "name": "exos-scripts",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Set of out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications",
   "main": "./lib/index.js",
   "types": "./lib/types/index.d.ts",
