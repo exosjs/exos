@@ -15,6 +15,9 @@ export default (isDevelopment: boolean): webpack.RuleSetRule[] => [
         loader: "css-loader",
         options: {
           importLoaders: 1,
+          // Class names will be camelized, the original class name will be removed from the locals
+          // For more info, see https://github.com/webpack-contrib/css-loader#localsconvention
+          localsConvention: "camelCaseOnly",
           modules: {
             mode: "local",
             localIdentName: "[name]__[local]--[hash:base64:5]",
