@@ -1,24 +1,27 @@
+import type React from "react";
+
+interface CssClasses {
+  [className: string]: string;
+}
+
 declare module "*.css" {
-  const content: { [className: string]: string };
+  const content: CssClasses;
   export default content;
 }
 
 declare module "*.scss" {
-  const content: { [className: string]: string };
+  const content: CssClasses;
   export default content;
 }
 
-// declare module "*.svg" {
-//   const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-//   export default content;
-// }
-
 declare module "*.svg" {
-  import React = require("react");
   const src: string;
 
-  // Default export is a string (for <img src={value} />)
-  // Named export is a React component
+  // Default export is a string
+  // This way, you can set SVGs as sources (for <img src={svgValue} />).
   export default src;
+
+  // Named export is a React component
+  // This way, you can add SVGs to the JSX (<MySVG />).
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
 }

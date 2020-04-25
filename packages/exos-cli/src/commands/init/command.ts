@@ -73,12 +73,12 @@ function installDependencies(appType: string, appFolderName: string): void {
 
   const appTypeDependencies = (dependencies[appType].dependencies as string[]).join(" ");
   if (appTypeDependencies.length) {
-    childProcess.execSync(`cd ${appFolder} && npm i ${appTypeDependencies}`, { stdio: "inherit" });
+    childProcess.execSync(`cd "${appFolder}" && npm i ${appTypeDependencies}`, { stdio: "inherit" });
   }
 
   const appTypeDevDependencies = (dependencies[appType].devDependencies as string[]).join(" ");
   if (appTypeDevDependencies.length) {
-    childProcess.execSync(`cd ${appFolder} && npm i -D ${appTypeDevDependencies}`, { stdio: "inherit" });
+    childProcess.execSync(`cd "${appFolder}" && npm i -D ${appTypeDevDependencies}`, { stdio: "inherit" });
   }
 }
 
@@ -99,7 +99,7 @@ export default function command(argv: CommandArguments): void {
   installDependencies(AppTypes[type], appFolder);
 
   console.log();
-  console.log(chalk.green(`Success!`), `Created "${name}" at ${appFolder}`);
+  console.log(chalk.green(`Success!`), `Created "${name}" at "${appFolder}"`);
   console.log();
 
   console.log("Inside that directory, you can run several commands:");
