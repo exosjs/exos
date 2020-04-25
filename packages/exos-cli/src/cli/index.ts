@@ -2,6 +2,7 @@ import yargsInteractive from "yargs-interactive";
 import availableCommands from "./available-commands";
 import getCliVersion from "./get-cli-version";
 import getCommandOptions from "./get-command-options";
+import chalk from "chalk";
 
 const yargsConfig = yargsInteractive();
 
@@ -31,12 +32,19 @@ availableCommands.forEach((command) => {
   (yargsConfig as any).command(command);
 });
 
-export default function initCli(): unknown {
+export default function cli(): unknown {
+  const cliVersion: string = getCliVersion();
+  const command: string = process.argv[2];
+
+  console.log();
+  console.log(`Running exos-cli command ${chalk.cyan(command)} (v${cliVersion})..`);
+  console.log();
+
   // Run yargsInteractive for the first time to obtain the command to use.
   return (yargsConfig as any)
     .usage("$0 <command> [args]")
     .demandCommand(1, 1, "You need to specify a command before moving on")
     .help()
     .wrap(null)
-    .version(getCliVersion()).argv;
+    .version(cliVersion).argv;
 }
