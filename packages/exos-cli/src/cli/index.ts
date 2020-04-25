@@ -40,7 +40,7 @@ export default function cli(): unknown {
   console.log(`Running ${chalk.white.bold("exos-cli")} command ${chalk.cyan(command)} (v${cliVersion})..`);
   console.log();
 
-  // Run yargsInteractive for the first time to obtain the command to use.
+  // Run yargsInteractive for the first time to obtain the command to use
   return (yargsConfig as any)
     .usage("$0 <command> [args]")
     .demandCommand(1, 1, "You need to specify a command before moving on")
