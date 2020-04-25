@@ -37,7 +37,7 @@ export default function cli(): unknown {
   const command: string = process.argv[2];
 
   console.log();
-  console.log(`Running exos-cli command ${chalk.cyan(command)} (v${cliVersion})..`);
+  console.log(`Running ${chalk.white.bold("exos-cli")} command ${chalk.cyan(command)} (v${cliVersion})..`);
   console.log();
 
   // Run yargsInteractive for the first time to obtain the command to use.
