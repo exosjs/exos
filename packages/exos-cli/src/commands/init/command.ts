@@ -53,6 +53,9 @@ function createApp(appType: string, authorName: string, appFolder: string, nameP
     fs.ensureDirSync(path.dirname(outputFilePath));
     fs.writeFileSync(outputFilePath, outputFileContent);
   });
+
+  // Rename gitignore because NPM messes up with it if named ".gitignore";
+  fs.renameSync(path.resolve(outputFolder, "gitignore"), path.resolve(outputFolder, ".gitignore"));
 }
 
 function installDependencies(appType: string, appFolderName: string): void {
