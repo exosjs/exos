@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.3.0",
+    "@teamsupercell/typings-for-css-modules-loader": "^2.1.1",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "copy-webpack-plugin": "^5.1.1",
