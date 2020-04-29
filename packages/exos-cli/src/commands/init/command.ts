@@ -67,7 +67,7 @@ function installDependencies(appType: string, appFolderName: string): void {
       devDependencies: ["@types/jest", "@types/node", "exos-scripts", "typescript"],
     },
     [AppTypes.ReactApp]: {
-      dependencies: ["react", "react-dom"],
+      dependencies: ["react", "react-dom", "tslib"],
       devDependencies: ["@types/jest", "@types/react", "@types/react-dom", "exos-scripts", "typescript"],
     },
   };
