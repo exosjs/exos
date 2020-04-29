@@ -12,9 +12,6 @@ interface ConfigResult<T> {
 }
 
 /**
-
- */
-/**
  * Retrieves the configuration to use.
  * @param configFileName The config file name
  * @param defaultConfig The default config to use
