@@ -1,5 +1,4 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "jsx": "react",
     "rootDir": "./src",
