@@ -5,7 +5,6 @@ import type webpack from "webpack";
 const getCssLoaders = (isDevelopment: boolean): (string | webpack.RuleSetLoader)[] => {
   const styleLoader = "style-loader";
   const miniCssExtractPluginLoader = MiniCssExtractPlugin.loader;
-  const typingsForCssModulesLoader = "@teamsupercell/typings-for-css-modules-loader";
   const cssLoader = {
     loader: "css-loader",
     options: {
@@ -21,7 +20,7 @@ const getCssLoaders = (isDevelopment: boolean): (string | webpack.RuleSetLoader)
     },
   };
 
-  return isDevelopment ? [styleLoader, typingsForCssModulesLoader, cssLoader] : [miniCssExtractPluginLoader, cssLoader];
+  return isDevelopment ? [styleLoader, cssLoader] : [miniCssExtractPluginLoader, cssLoader];
 };
 
 export default (isDevelopment: boolean): webpack.RuleSetRule[] => [
