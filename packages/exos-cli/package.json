@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nanovazquez/exos.git"
+    "url": "git+https://github.com/exosjs/exos.git"
   },
   "keywords": [
     "react",
@@ -33,9 +33,9 @@
   "author": "nanovazquez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nanovazquez/exos/issues"
+    "url": "https://github.com/exosjs/exos/issues"
   },
-  "homepage": "https://github.com/nanovazquez/exos#readme",
+  "homepage": "https://github.com/exosjs/exos#readme",
   "dependencies": {
     "fs-extra": "^9.0.0",
     "yargs-interactive": "^3.0.0"

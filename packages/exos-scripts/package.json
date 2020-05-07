@@ -12,15 +12,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/owner/exos-scripts"
+    "url": "git+https://github.com/exosjs/exos-scripts"
   },
   "keywords": [],
   "author": "Nano Vazquez <marianodvazquez@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/owner/exos-scripts/issues"
+    "url": "https://github.com/exosjs/exos-scripts/issues"
   },
-  "homepage": "https://github.com/owner/exos-scripts#readme",
+  "homepage": "https://github.com/exosjs/exos-scripts#readme",
   "scripts": {
     "lint": "eslint -c ./src/scripts/lint/.eslintrc.js ./src/**/*.ts",
     "test": "jest -c ./src/scripts/test/jest.config.js --passWithNoTests --collectCoverage=$CI --rootDir=.",
