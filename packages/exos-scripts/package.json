@@ -1,6 +1,6 @@
 {
   "name": "exos-scripts",
-  "version": "0.3.14",
+  "version": "0.3.12",
   "description": "Set of out-of-the-box extensible scripts that helps you with the lifecycle of your React + TypeScript applications",
   "main": "./lib/index.js",
   "types": "./lib/types/index.d.ts",
@@ -71,5 +71,6 @@
     "@types/webpack-dev-server": "^3.10.1",
     "typescript": "^3.8.3",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "gitHead": "bab0fd6ec34bc45ff1f01d83b1518de39aa1958c"
 }
