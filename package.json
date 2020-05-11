@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/nanovazquez/exos#readme",
   "devDependencies": {
+    "identity-obj-proxy": "^3.0.0",
     "lerna": "^3.13.1"
   },
   "scripts": {

@@ -10,4 +10,7 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   // If the CI environment variable is set, run coverage
   collectCoverage: !!process.env.CI,
+  moduleNameMapper: {
+    "\\.(css|less)$": "identity-obj-proxy",
+  },
 };
