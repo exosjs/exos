@@ -11,7 +11,7 @@ module.exports = {
   // If the CI environment variable is set, run coverage
   collectCoverage: !!process.env.CI,
   moduleNameMapper: {
-    "\\.(css|less)$": "identity-obj-proxy",
+    "\\.(css|less|scss)$": "identity-obj-proxy",
     "\\.(jpg|jpeg|png|svg)$": path.join(__dirname, "FileMock.js"),
   },
 };
