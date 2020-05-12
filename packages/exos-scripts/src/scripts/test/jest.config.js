@@ -12,5 +12,6 @@ module.exports = {
   collectCoverage: !!process.env.CI,
   moduleNameMapper: {
     "\\.(css|less)$": "identity-obj-proxy",
+    "\\.(jpg|jpeg|png|svg)$": path.join(__dirname, "FileMock.js"),
   },
 };
