@@ -21,5 +21,6 @@ export default (isDevelopment: boolean, version: string): webpack.Plugin[] => [
     publicPath: OUTPUT_PUBLIC_PATH,
     version,
   }),
+  new webpack.WatchIgnorePlugin([/scss\.d\.ts$/]),
   isDevelopment ? new webpack.HotModuleReplacementPlugin() : () => undefined,
 ];
