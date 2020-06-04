@@ -21,5 +21,5 @@ export default (isDevelopment: boolean, version: string): webpack.Plugin[] => [
     publicPath: OUTPUT_PUBLIC_PATH,
     version,
   }),
-  isDevelopment ? new webpack.HotModuleReplacementPlugin() : () => {},
+  isDevelopment ? new webpack.HotModuleReplacementPlugin() : () => undefined,
 ];

@@ -27,6 +27,8 @@ function getConfigToUse<T>(configFileName: string, defaultConfig: T): ConfigResu
     return { config: defaultConfig, isCustom: false };
   }
 
+  // We need to require this dynamically as the command is chosen by the user
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const config = require(customConfigPath)(defaultConfig, { env: process.env.NODE_ENV });
   return { config, isCustom: true, customConfigPath };
 }

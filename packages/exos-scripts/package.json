@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/exosjs/exos-scripts#readme",
   "scripts": {
-    "lint": "eslint -c ./src/scripts/lint/.eslintrc.js ./src/**/*.ts",
+    "lint": "eslint -c ./src/scripts/lint/.eslintrc.library.js ./src/**/*.ts",
     "test": "jest -c ./src/scripts/test/jest.config.js --passWithNoTests --collectCoverage=$CI --rootDir=.",
     "build": "rm -rf lib && tsc",
     "prepublishOnly": "npm run build"
@@ -33,17 +33,17 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.3.0",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
     "copy-webpack-plugin": "^5.1.1",
     "cross-spawn": "^7.0.2",
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.3",
     "identity-obj-proxy": "^3.0.0",
@@ -56,7 +56,7 @@
     "style-loader": "^1.1.3",
     "ts-jest": "^26.0.0",
     "ts-loader": "^6.2.2",
-    "tslib": "^1.11.1",
+    "tslib": "^2.0.0",
     "url-loader": "^4.0.0",
     "webpack": "^4.42.1",
     "webpack-dev-server": "^3.10.3"
@@ -64,13 +64,13 @@
   "devDependencies": {
     "@types/copy-webpack-plugin": "^5.0.0",
     "@types/cross-spawn": "^6.0.1",
-    "@types/eslint": "^6.8.0",
+    "@types/eslint": "^6.8.1",
     "@types/jest": "^25.2.1",
     "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/node": "^13.11.1",
     "@types/webpack": "^4.41.10",
     "@types/webpack-dev-server": "^3.10.1",
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.3",
     "webpack-cli": "^3.3.11"
   },
   "gitHead": "bab0fd6ec34bc45ff1f01d83b1518de39aa1958c"
