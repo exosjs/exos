@@ -1,6 +1,6 @@
 {
   "name": "exos-cli",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "CLI tool for building React + TypeScript applications",
   "main": "./dist/exos-cli.js",
   "types": "./dist/types/exos-cli.d.ts",
@@ -46,7 +46,7 @@
     "@types/node": "^13.11.1",
     "@types/yargs-interactive": "^2.1.0",
     "chalk": "^4.0.0",
-    "exos-scripts": "^0.4.4",
+    "exos-scripts": "^0.5.0",
     "typescript": "^3.8.3"
   },
   "gitHead": "bab0fd6ec34bc45ff1f01d83b1518de39aa1958c"
