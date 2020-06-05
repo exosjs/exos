@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 import path from "path";
-import { CLIEngine } from "eslint";
 import { SOURCE_PATH } from "../../common/paths";
 import getConfigToUse from "../../common/getConfigToUse";
 import eslintrcReact = require("./.eslintrc.react");
+
+// Use require because the ESLint types aren't updated yet.
+const { ESLint } = require("eslint");
 import eslintrcLibrary = require("./.eslintrc.library");
 
 const isLibrary = process.argv.find((item) => item === "--type=library") !== null;
@@ -14,18 +16,45 @@ const eslintrc = isLibrary ? eslintrcLibrary : eslintrcReact;
 const configToUse = getConfigToUse<{}>("lint.js", eslintrc);
 console.info(configToUse.isCustom ? `Found custom lint at ${configToUse.customConfigPath}` : "Using default lint config");
 
-const cliEngine = new CLIEngine({
-  configFile: configToUse.isCustom ? configToUse.customConfigPath : path.resolve(__dirname, `.eslintrc.${isLibrary ? "library" : "react"}.js`),
-  fix: process.argv.indexOf("--fix") !== -1,
-  useEslintrc: true,
-});
+async function main() {
+  try {
+    const hasFix = process.argv.indexOf("--fix") !== -1;
+    const filesFlagIndex = process.argv.indexOf("--files");
+    const hasFiles = filesFlagIndex !== -1;
+  
+    // 1. Create an instance with the `fix` option.
+    const eslint = new ESLint({
+      baseConfig: configToUse.config,
+      fix: hasFix,
+      useEslintrc: false,
+    });
+  
+    let codeFolders: string[];
 
-const codeFolders = [path.join(SOURCE_PATH, "/**/*.ts")];
-const report = cliEngine.executeOnFiles(codeFolders);
+    codeFolders = [path.join(SOURCE_PATH, "/**/*.{ts,tsx}")];
+    
+    // 2. Lint files. This doesn't modify target files.
+    const results = await eslint.lintFiles(codeFolders);
+  
+    // 3. If "--fix" is provided, modify the files with the fixed code.
+    if (hasFix) {
+      await ESLint.outputFixes(results);
+    }
+  
+    // 4. Format the results.
+    const formatter = await eslint.loadFormatter("stylish");
+    const resultText = formatter.format(results);
+  
+    // 5. Output it.
+    console.log(resultText);
+  
+    if (results.errorCount > 0 || results.warningCount > 0) {
+      process.exit(1);
+    }
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+};
 
-if (report.errorCount > 0 || report.warningCount > 0) {
-  // Output to console and return failure signal
-  const formatter = cliEngine.getFormatter();
-  console.log(formatter(report.results));
-  process.exit(1);
-}
+main();
