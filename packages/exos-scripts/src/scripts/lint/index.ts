@@ -4,10 +4,10 @@ import path from "path";
 import { SOURCE_PATH } from "../../common/paths";
 import getConfigToUse from "../../common/getConfigToUse";
 import eslintrcReact = require("./.eslintrc.react");
+import eslintrcLibrary = require("./.eslintrc.library");
 
 // Use require because the ESLint types aren't updated yet.
 const { ESLint } = require("eslint");
-import eslintrcLibrary = require("./.eslintrc.library");
 
 const isLibrary = process.argv.find((item) => item === "--type=library") !== null;
 const eslintrc = isLibrary ? eslintrcLibrary : eslintrcReact;
@@ -17,44 +17,45 @@ const configToUse = getConfigToUse<{}>("lint.js", eslintrc);
 console.info(configToUse.isCustom ? `Found custom lint at ${configToUse.customConfigPath}` : "Using default lint config");
 
 async function main() {
-  try {
-    const hasFix = process.argv.indexOf("--fix") !== -1;
-    const filesFlagIndex = process.argv.indexOf("--files");
-    const hasFiles = filesFlagIndex !== -1;
-  
-    // 1. Create an instance with the `fix` option.
-    const eslint = new ESLint({
-      baseConfig: configToUse.config,
-      fix: hasFix,
-      useEslintrc: false,
-    });
-  
-    let codeFolders: string[];
+  const hasFixFlag = process.argv.indexOf("--fix") !== -1;
 
-    codeFolders = [path.join(SOURCE_PATH, "/**/*.{ts,tsx}")];
-    
-    // 2. Lint files. This doesn't modify target files.
+  // Create an instance with the `fix` option.
+  const eslint = new ESLint({
+    baseConfig: configToUse.config,
+    fix: hasFixFlag,
+    useEslintrc: false,
+  });
+
+  let codeFolders: string[];
+
+  codeFolders = [path.join(SOURCE_PATH, "/**/*.{ts,tsx}")];
+
+  try {
+    // Lint files and get the lint result
     const results = await eslint.lintFiles(codeFolders);
-  
-    // 3. If "--fix" is provided, modify the files with the fixed code.
-    if (hasFix) {
+
+    // If "--fix" is provided, modify the files with the fixed code
+    if (hasFixFlag) {
       await ESLint.outputFixes(results);
     }
-  
-    // 4. Format the results.
+
+    // Format the results
     const formatter = await eslint.loadFormatter("stylish");
     const resultText = formatter.format(results);
-  
-    // 5. Output it.
+
+    // Output the results and exit the process based on them
+    const resultHasErrors = results.errorCount > 0;
+    const resultHasWarnings = results.warningCount > 0;
+    const exitCode = resultHasErrors || resultHasWarnings ? 1 : 0;
+
     console.log(resultText);
-  
-    if (results.errorCount > 0 || results.warningCount > 0) {
-      process.exit(1);
-    }
+    process.exit(exitCode);
   } catch (error) {
+    // eslint.lintFiles could throw errors
+    // See https://eslint.org/docs/developer-guide/nodejs-api#%E2%97%86-new-eslint-options
     console.error(error);
     process.exit(1);
   }
-};
+}
 
 main();
