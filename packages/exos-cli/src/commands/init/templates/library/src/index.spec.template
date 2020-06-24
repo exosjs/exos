@@ -1,7 +1,0 @@
-import { getMessage } from "./index";
-
-describe("getMessage", () => {
-  it("should return a message", () => {
-    expect(getMessage()).toBe("hello world");
-  });
-});
